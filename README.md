@@ -60,7 +60,7 @@ class InvoiceDocument < PrawnCocktail::Document
 end
 ```
 
-The document has `render` and `render_file` methods, just like `Prawn::Document`.
+The document has `render` and `render_file(name)` methods, just like `Prawn::Document`.
 
 The filename, if defined, is used when generating the document. The data is passed to the template as an `OpenStruct`.
 
