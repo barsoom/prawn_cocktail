@@ -16,6 +16,8 @@ NOTE: Work in progress; well used but untested.
 
 ## Usage
 
+### Controller
+
 Your controllers get a `send_pdf` method:
 
 ``` ruby
@@ -27,6 +29,10 @@ class InvoiceController < ApplicationController
   end
 end
 ```
+
+### View
+
+Against Rails conventions, but in line with the idea of [two-step views](http://martinfowler.com/eaaCatalog/twoStepView.html), we think of these as "views" as opposed to "templates".
 
 Build your view data in a document class:
 
@@ -60,7 +66,9 @@ The filename, if defined, is used when generating the document. The data is pass
 
 If the data becomes complex, you are advised to extract one or many builder classes like `InvoiceDocument::Data`.
 
-Put the Prawn code in a template named after the document class:
+### Template
+
+Put the Prawn code in a template named after the view:
 
 ``` ruby
 # app/documents/views/invoice_document.pdf.rb
@@ -81,6 +89,8 @@ end
 The `meta` block is optional. If present, it should return a hash which will be passed to `Prawn::Document.new`. This is where you specify `page_size`, `page_layout` and such.
 
 The `content` block will be passed the data from the document as an `OpenStruct`, and will be rendered in the context of a `Prawn::Document` instance.
+
+### Helpers
 
 You are advised to extract any complexity or shared code out of the template and into helpers:
 
@@ -109,6 +119,8 @@ module BaseDocumentHelper
   end
 end
 ```
+
+### `initialize_document`
 
 If you want to run some code in every document, use an `initialize_document` block:
 
