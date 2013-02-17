@@ -97,6 +97,7 @@ You are advised to extract any complexity or shared code out of the template and
 
 class InvoiceDocument
   helper BaseDocumentHelper
+  helper InvoiceDocumentHelper
 end
 ```
 
@@ -118,6 +119,10 @@ module BaseDocumentHelper
   end
 end
 ```
+
+Note that you must explicitly declare the helpers you want. No helpers are automatically included.
+
+You can declare base helpers in a base document class, though, and that will be inherited.
 
 ### `initialize_document`
 
