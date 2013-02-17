@@ -6,8 +6,8 @@ module PrawnCocktail
       @doc_initializers = doc_initializers
     end
 
-    def meta
-      @prawn_document_options = yield
+    def meta(opts)
+      @prawn_document_options = opts
     end
 
     def content(&block)
