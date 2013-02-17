@@ -34,7 +34,6 @@ Build your view data in a document class:
 # app/documents/invoice_document.rb
 
 class InvoiceDocument < PrawnCocktail::Document
-
   def initialize(invoice)
     @invoice = invoice
   end
@@ -115,7 +114,6 @@ If you want to run some code in every document, use an `initialize_document` blo
 
 ``` ruby
 class BaseDocument < PrawnCocktail::Document
-
   initialize_document do
     FONT_DIR ||= Rails.root.join("app/views/documents/fonts")
 
