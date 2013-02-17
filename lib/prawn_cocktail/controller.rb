@@ -1,5 +1,7 @@
 module PrawnCocktail
   module Controller
+    private
+
     def send_pdf(document)
       filename = document.respond_to?(:filename) ? "#{document.filename}.pdf" : nil
 
