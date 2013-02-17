@@ -84,7 +84,7 @@ content do |data|
 end
 ```
 
-The `meta` block is optional. It takes a hash which will be passed to `Prawn::Document.new`. This is where you specify `page_size`, `page_layout` and such.
+The `meta` declaration is optional. It takes a hash which will be passed to `Prawn::Document.new`. This is where you specify `page_size`, `page_layout` and such.
 
 The `content` block will be passed the data from the document as an `OpenStruct`, and will be rendered in the context of a `Prawn::Document` instance.
 
