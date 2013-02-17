@@ -6,14 +6,15 @@ require 'prawn_cocktail/version'
 Gem::Specification.new do |gem|
   gem.name          = "prawn_cocktail"
   gem.version       = PrawnCocktail::VERSION
-  gem.authors       = ["Henrik N"]
-  gem.email         = ["henrik@nyh.se"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.authors       = ["Henrik Nyh"]
+  gem.email         = ["henrik@barsoom.se"]
+  gem.summary       = "Simple views, templates and helpers on top of Prawn in Ruby on Rails."
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+
+  gem.add_dependency "prawn"
 end
