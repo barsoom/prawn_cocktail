@@ -62,9 +62,9 @@ end
 
 The document has `render` and `render_file(name)` methods, just like `Prawn::Document`.
 
-The filename, if defined, is used when generating the document. The data is passed to the template as an `OpenStruct`.
+The filename, if defined, is used when generating the document. The `data` value is passed to the template as an `OpenStruct`.
 
-If the data becomes complex, you are advised to extract one or many builder classes like `InvoiceDocument::Data`.
+If the data becomes complex, you are advised to extract one or many builder classes like `InvoiceDocument::Data` and call those from `data`.
 
 ### Template
 
