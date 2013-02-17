@@ -96,6 +96,7 @@ You are advised to extract any complexity or shared code out of the template and
 
 ``` ruby
 # app/documents/invoice_document.rb
+
 class InvoiceDocument
   helper BaseDocumentHelper
 end
