@@ -8,6 +8,8 @@ Ruby 1.9 only.
 
 NOTE: Work in progress; well used but untested.
 
+![](http://upload.wikimedia.org/wikipedia/commons/f/f8/Cocktail_1_bg_060702.jpg)
+
 ## TODO
 
 * Tests.
