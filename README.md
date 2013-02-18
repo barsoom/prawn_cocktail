@@ -79,9 +79,9 @@ meta page_size: "A4"
 
 content do |data|
   text "Invoice #{data.number}"
-  move_down 1.cm
+  move_down 10
   text "Amount: #{data.amount}"
-  move_down 1.cm
+  move_down 10
   text data.customer_name
 end
 ```
@@ -133,15 +133,7 @@ If you want to run some code in every document, use an `initialize_document` blo
 ``` ruby
 class BaseDocument < PrawnCocktail::Document
   initialize_document do
-    FONT_DIR ||= Rails.root.join("app/views/documents/fonts")
-
-    font_families.update(
-      "Helvetica Neue" => {
-        bold:   FONT_DIR.join("HelveticaNeueLTCom-Md.ttf").to_s,
-        normal: FONT_DIR.join("HelveticaNeueLTCom-Lt.ttf").to_s
-    })
-
-    font "Helvetica Neue"
+    font "Courier"
   end
 end
 ```
