@@ -74,7 +74,7 @@ If the data becomes complex, you are advised to extract one or many builder clas
 Put the Prawn code in a template named after the view:
 
 ``` ruby
-# app/documents/views/invoice_document.pdf.rb
+# app/views/documents/invoice_document.pdf.rb
 
 meta page_size: "A4"
 
@@ -105,7 +105,7 @@ end
 ```
 
 ``` ruby
-# app/documents/views/invoice_document.pdf.rb
+# app/views/documents/invoice_document.pdf.rb
 
 content do |data|
   common_header

@@ -48,7 +48,7 @@ module PrawnCocktail
     end
 
     def template_path
-      "app/documents/views/#{@template}.pdf.rb"
+      "app/views/documents/#{@template}.pdf.rb"
     end
 
     def app_root
