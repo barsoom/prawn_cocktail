@@ -13,6 +13,7 @@ NOTE: Work in progress; well used but untested.
 ## TODO
 
 * Tests.
+* Syntax to declare page size shorthands?
 * Look into what dependencies to declare. Rails? Active Support?
 * Include instead of inherit? Consider `class_attribute`.
 
