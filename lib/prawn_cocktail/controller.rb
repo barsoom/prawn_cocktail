@@ -3,7 +3,7 @@ module PrawnCocktail
     private
 
     def send_pdf(document)
-      filename = document.respond_to?(:filename) ? "#{document.filename}.pdf" : nil
+      filename = document.respond_to?(:filename) ? document.filename : nil
 
       send_data(
         document.render,

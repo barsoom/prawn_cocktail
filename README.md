@@ -47,7 +47,7 @@ class InvoiceDocument < PrawnCocktail::Document
   end
 
   def filename
-    "invoice_#{@invoice.id}"
+    "invoice_#{@invoice.id}.pdf"
   end
 
   private
