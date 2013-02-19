@@ -24,7 +24,7 @@ NOTE: Work in progress; well used but untested.
 Your controllers get a `send_pdf` method:
 
 ``` ruby
-class InvoiceController < ApplicationController
+class InvoicesController < ApplicationController
   def show
     invoice = Invoice.find(params[:id])
     document = InvoiceDocument.new(invoice)
@@ -33,7 +33,7 @@ class InvoiceController < ApplicationController
 end
 ```
 
-### View
+### Document/view
 
 Against Rails conventions, but in line with the idea of [two-step views](http://martinfowler.com/eaaCatalog/twoStepView.html), we think of these as "views" as opposed to "templates".
 
@@ -139,7 +139,13 @@ class BaseDocument < PrawnCocktail::Document
 end
 ```
 
-This is incidentally how helper modules are implemented. They simply extend the document instance in such a block.
+This is incidentally how helpers are implemented:
+
+```
+def self.helper(mod)
+  initialize_document { extend mod }
+end
+```
 
 ## Installation
 
