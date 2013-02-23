@@ -1,10 +1,12 @@
 # PrawnCocktail
 
-Simple documents, templates and helpers on top of Prawn in Ruby on Rails.
+Simple documents, templates and helpers on top of Prawn.
 
 Because writing Prawn documents PHP 4 style is no fun.
 
-Ruby 1.9 only.
+If you're using this with Ruby on Rails, get [`PrawnCocktailRails`](http://github.com/barsoom/prawn_cocktail_rails).
+
+Ruby 1.9 only since we use and love instance\_exec.
 
 NOTE: Work in progress; well used but untested.
 
@@ -20,24 +22,10 @@ NOTE: Work in progress; well used but untested.
 
 ### Configuration
 
-You can change where PrawnCocktail looks for its templates. This is the default:
+You can change where PrawnCocktail looks for its templates. This is the default (suitable for Ruby on Rails):
 
 ``` ruby
 PrawnCocktail.template_root = "app/views/documents"
-```
-
-### Controller
-
-Your controllers get a `send_pdf` method:
-
-``` ruby
-class InvoicesController < ApplicationController
-  def show
-    invoice = Invoice.find(params[:id])
-    document = InvoiceDocument.new(invoice)
-    send_pdf document
-  end
-end
 ```
 
 ### Document
@@ -45,8 +33,6 @@ end
 The document class provides a data hash for the template, and optionally a filename:
 
 ``` ruby
-# app/documents/invoice_document.rb
-
 class InvoiceDocument < PrawnCocktail::Document
   def initialize(invoice)
     @invoice = invoice
@@ -68,9 +54,11 @@ class InvoiceDocument < PrawnCocktail::Document
 end
 ```
 
+In Ruby on Rails, we suggest putting this in `app/documents/invoice_document.rb`. But anywhere is fine as long as the file is loaded, automatically or otherwise.
+
 The document has `render` and `render_file(name)` methods, just like `Prawn::Document`.
 
-The filename, if defined, is used by `send_pdf` in the controller. You might also want to use it with mail attachments, scripts etc.
+The filename is not required. Other libraries like `PrawnCocktailRails` may make use of it.
 
 The `data` value is passed to the template as an `OpenStruct`.
 
@@ -78,11 +66,11 @@ If the data becomes complex, you are advised to extract one or many builder clas
 
 ### Template
 
-Put the Prawn code in a template named after the document:
+Put the Prawn code in a template in the `PrawnCocktail.template_root` directory, named after the document, with a `.pdf.rb` extension.
+
+The defaults (suitable for Ruby on Rails) would make that e.g. `app/views/documents/invoice_document.pdf.rb`.
 
 ``` ruby
-# app/views/documents/invoice_document.pdf.rb
-
 meta page_size: "A4"
 
 content do |data|
@@ -103,7 +91,7 @@ The `content` block will be passed the data from the document as an `OpenStruct`
 You are advised to extract any complexity or shared code out of the template and into helpers:
 
 ``` ruby
-# app/documents/invoice_document.rb
+# Document
 
 class InvoiceDocument
   helper BaseDocumentHelper
@@ -112,7 +100,7 @@ end
 ```
 
 ``` ruby
-# app/views/documents/invoice_document.pdf.rb
+# Template
 
 content do |data|
   common_header
@@ -121,7 +109,7 @@ end
 ```
 
 ``` ruby
-# app/documents/helpers/base_document_helper.rb
+# Helper
 
 module BaseDocumentHelper
   def common_header
@@ -130,9 +118,11 @@ module BaseDocumentHelper
 end
 ```
 
-Note that you must explicitly declare the helpers you want. No helpers are automatically included.
+Any loaded module can be used as a helper, as long as its code can be run in the context of a Prawn document.
 
-You can declare base helpers in a base document class, though, and that will be inherited.
+If you use `PrawnCocktailRails`, you can put modules in `app/documents/helpers`, e.g. `app/documents/helpers/base_document_helper.rb`, and they will be autoloaded.
+
+Note that you must explicitly declare the helpers you want. No helpers are automatically included. You can declare base helpers in a base document class, though, and they will be inherited.
 
 ### `initialize_document`
 

@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.version       = PrawnCocktail::VERSION
   gem.authors       = ["Henrik Nyh"]
   gem.email         = ["henrik@barsoom.se"]
-  gem.summary       = "Simple views, templates and helpers on top of Prawn in Ruby on Rails."
+  gem.summary       = "Simple documents, templates and helpers on top of Prawn."
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
@@ -17,5 +17,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency "prawn"
-  gem.add_dependency "rails"
+  gem.add_dependency "activesupport"
 end
