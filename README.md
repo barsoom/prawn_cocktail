@@ -18,6 +18,14 @@ NOTE: Work in progress; well used but untested.
 
 ## Usage
 
+### Configuration
+
+You can change where PrawnCocktail looks for its templates. This is the default:
+
+``` ruby
+PrawnCocktail.template_root = "app/views/documents"
+```
+
 ### Controller
 
 Your controllers get a `send_pdf` method:

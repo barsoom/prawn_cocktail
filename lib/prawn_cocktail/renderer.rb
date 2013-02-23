@@ -31,7 +31,6 @@ module PrawnCocktail
     private
 
     def render
-      # We pass the filename for better backtraces.
       instance_eval(read_template, template_path)
     end
 
@@ -44,15 +43,15 @@ module PrawnCocktail
     end
 
     def read_template
-      File.read(File.join(app_root, template_path))
+      File.read(template_path)
     end
 
     def template_path
-      "app/views/documents/#{@template}.pdf.rb"
+      File.join(template_root, "#{@template}.pdf.rb")
     end
 
-    def app_root
-      Rails.root
+    def template_root
+      PrawnCocktail.template_root
     end
   end
 end
