@@ -14,11 +14,11 @@ describe PrawnCocktail do
 
   describe "#render" do
     it "has the right contents" do
-      assert_data_has_the_right_contents
+      assert_document_has_the_right_contents
     end
 
     it "has the right geometry" do
-      assert_data_has_the_right_geometry
+      assert_document_has_the_right_geometry
     end
   end
 
@@ -29,23 +29,23 @@ describe PrawnCocktail do
     end
 
     it "has the right contents" do
-      assert_data_has_the_right_contents
+      assert_document_has_the_right_contents
     end
 
     it "has the right geometry" do
-      assert_data_has_the_right_geometry
+      assert_document_has_the_right_geometry
     end
   end
 end
 
-def assert_data_has_the_right_contents
+def assert_document_has_the_right_contents
   assert_equal(
     [ "Init works.", "Test document", "Status: success" ],
     parse_strings(data)
   )
 end
 
-def assert_data_has_the_right_geometry
+def assert_document_has_the_right_geometry
   assert_equal(
     parse_geometry(data),
     expected_geometry("A4")
