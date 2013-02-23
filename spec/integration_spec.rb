@@ -25,7 +25,7 @@ describe PrawnCocktail do
   describe "#render_file" do
     let(:data) do
       TestDocument.new("success").render_file("/tmp/test_document.pdf")
-      data = File.read("/tmp/test_document.pdf")
+      File.read("/tmp/test_document.pdf")
     end
 
     it "has the right contents" do
