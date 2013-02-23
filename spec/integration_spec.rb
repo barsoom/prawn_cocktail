@@ -25,7 +25,10 @@ describe PrawnCocktail do
 end
 
 def assert_test_document(data)
-  assert_equal [ "Test document", "Status: success" ], strings(data)
+  assert_equal(
+    [ "Init works.", "Test document", "Status: success" ],
+    strings(data)
+  )
 end
 
 def strings(pdf_data)

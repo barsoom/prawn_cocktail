@@ -6,6 +6,7 @@ end
 
 class TestDocument < PrawnCocktail::Document
   helper TestDocumentHelper
+  initialize_document { text "Init works." }
 
   def initialize(status)
     @status = status
