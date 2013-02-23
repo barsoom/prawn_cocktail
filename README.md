@@ -1,5 +1,7 @@
 # PrawnCocktail
 
+[![Build status](https://secure.travis-ci.org/barsoom/prawn_cocktail.png)](https://travis-ci.org/#!/barsoom/prawn_cocktail/builds)
+
 Simple documents, templates and helpers on top of Prawn.
 
 Because writing Prawn documents PHP 4 style is no fun.
