@@ -14,29 +14,29 @@ module PrawnCocktail
 
     def content(&block)
       @doc_initializers.each do |proc|
-        doc.instance_eval(&proc)
+        prawn_document.instance_eval(&proc)
       end
 
-      doc.instance_exec(data_object, &block)
+      prawn_document.instance_exec(data_object, &block)
     end
 
     def render_data
-      render
-      doc.render
+      apply_template
+      prawn_document.render
     end
 
     def render_file(file)
-      render
-      doc.render_file(file)
+      apply_template
+      prawn_document.render_file(file)
     end
 
     private
 
-    def render
-      Template.new(@template_name).render(self)
+    def apply_template
+      Template.new(@template_name).apply(self)
     end
 
-    def doc
+    def prawn_document
       @doc ||= Prawn::Document.new(@prawn_document_options || {})
     end
 

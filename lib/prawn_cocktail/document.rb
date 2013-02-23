@@ -6,6 +6,17 @@ require_relative "renderer"
 
 module PrawnCocktail
   class Document
+    class_attribute :doc_initializers
+    self.doc_initializers ||= []
+
+    def self.initialize_document(&block)
+      self.doc_initializers << block
+    end
+
+    def self.helper(mod)
+      initialize_document { extend mod }
+    end
+
     def render
       renderer.render_data
     end
@@ -16,27 +27,22 @@ module PrawnCocktail
 
     def filename
       # Override in your subclass.
+      nil
     end
 
     private
 
     def renderer
-      @renderer ||= Renderer.new(template, data, self.class.doc_initializers)
+      @renderer ||= Renderer.new(template_name, data, self.class.doc_initializers)
     end
 
-    def template
+    def template_name
       self.class.name.underscore
     end
 
-    class_attribute :doc_initializers
-    self.doc_initializers ||= []
-
-    def self.initialize_document(&block)
-      self.doc_initializers << block
-    end
-
-    def self.helper(mod)
-      initialize_document { extend mod }
+    def data
+      # Override in your subclass.
+      {}
     end
   end
 end

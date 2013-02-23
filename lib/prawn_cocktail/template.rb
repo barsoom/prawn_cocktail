@@ -4,7 +4,7 @@ module PrawnCocktail
       @name = name
     end
 
-    def render(context)
+    def apply(context)
       context.instance_eval(read_template, template_path)
     end
 
