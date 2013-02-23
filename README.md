@@ -1,6 +1,6 @@
 # PrawnCocktail
 
-Simple views, templates and helpers on top of Prawn in Ruby on Rails.
+Simple documents, templates and helpers on top of Prawn in Ruby on Rails.
 
 Because writing Prawn documents PHP 4 style is no fun.
 
@@ -32,11 +32,9 @@ class InvoicesController < ApplicationController
 end
 ```
 
-### Document/view
+### Document
 
-Against Rails conventions, but in line with the idea of [two-step views](http://martinfowler.com/eaaCatalog/twoStepView.html), we think of these as "views" as opposed to "templates".
-
-Build your view data in a document class:
+The document class provides a data hash for the template, and optionally a filename:
 
 ``` ruby
 # app/documents/invoice_document.rb
@@ -64,13 +62,15 @@ end
 
 The document has `render` and `render_file(name)` methods, just like `Prawn::Document`.
 
-The filename, if defined, is used when generating the document. The `data` value is passed to the template as an `OpenStruct`.
+The filename, if defined, is used by `send_pdf` in the controller. You might also want to use it with mail attachments, scripts etc.
+
+The `data` value is passed to the template as an `OpenStruct`.
 
 If the data becomes complex, you are advised to extract one or many builder classes like `InvoiceDocument::Data` and call those from `data`.
 
 ### Template
 
-Put the Prawn code in a template named after the view:
+Put the Prawn code in a template named after the document:
 
 ``` ruby
 # app/views/documents/invoice_document.pdf.rb
