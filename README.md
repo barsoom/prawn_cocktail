@@ -12,12 +12,6 @@ Ruby 1.9 only since we use and love instance\_exec.
 
 ![](http://upload.wikimedia.org/wikipedia/commons/f/f8/Cocktail_1_bg_060702.jpg)
 
-## TODO
-
-* More tests.
-* Syntax to declare page size shorthands?
-* Include instead of inherit? Consider `class_attribute`.
-
 ## Usage
 
 ### Configuration

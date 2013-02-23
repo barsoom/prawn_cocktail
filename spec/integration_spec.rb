@@ -27,10 +27,23 @@ end
 def assert_test_document(data)
   assert_equal(
     [ "Init works.", "Test document", "Status: success" ],
-    strings(data)
+    parse_strings(data)
+  )
+
+  assert_equal(
+    parse_geometry(data),
+    expected_geometry("A4")
   )
 end
 
-def strings(pdf_data)
+def parse_strings(pdf_data)
   PDF::Inspector::Text.analyze(pdf_data).strings
+end
+
+def parse_geometry(pdf_data)
+  PDF::Inspector::Page.analyze(pdf_data).pages.first[:size]
+end
+
+def expected_geometry(name)
+  Prawn::Document::PageGeometry::SIZES[name]
 end
