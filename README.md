@@ -112,7 +112,7 @@ module BaseDocumentHelper
 end
 ```
 
-Any loaded module can be used as a helper, as long as its code can be run in the context of a Prawn document.
+Any loaded module can be used as a helper, as long as its methods can run in the context of a Prawn document.
 
 If you use `PrawnCocktailRails`, you can put modules in `app/documents/helpers`, e.g. `app/documents/helpers/base_document_helper.rb`, and they will be autoloaded.
 
@@ -137,6 +137,10 @@ def self.helper(mod)
   initialize_document { extend mod }
 end
 ```
+
+You can have any number of document initializers in the same class.
+
+Document initializers in a superclass are inherited by subclasses, and the subclass can add its own.
 
 ## Installation
 
