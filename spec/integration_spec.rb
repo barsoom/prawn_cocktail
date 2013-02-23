@@ -36,7 +36,21 @@ describe PrawnCocktail do
       assert_document_has_the_right_geometry
     end
   end
+
+  describe "inheriting documents" do
+    let(:data) do
+      SubTestDocument.new("success").render
+    end
+
+    it "inherits initializers and helpers" do
+      assert_equal(
+        [ "Init works.", "Sub-init works.", "Sub test document", "Status: success" ],
+        parse_strings(data)
+      )
+    end
+  end
 end
+
 
 def assert_document_has_the_right_contents
   assert_equal(

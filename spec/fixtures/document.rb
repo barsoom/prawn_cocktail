@@ -18,3 +18,7 @@ class TestDocument < PrawnCocktail::Document
     { status: @status }
   end
 end
+
+class SubTestDocument < TestDocument
+  initialize_document { text "Sub-init works." }
+end

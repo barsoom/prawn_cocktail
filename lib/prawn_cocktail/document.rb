@@ -7,10 +7,10 @@ require_relative "renderer"
 module PrawnCocktail
   class Document
     class_attribute :doc_initializers
-    self.doc_initializers ||= []
+    self.doc_initializers = []
 
     def self.initialize_document(&block)
-      self.doc_initializers << block
+      self.doc_initializers += [block]
     end
 
     def self.helper(mod)
