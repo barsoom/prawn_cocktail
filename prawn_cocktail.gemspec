@@ -18,4 +18,6 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency "prawn"
   gem.add_dependency "activesupport"
+
+  gem.add_development_dependency "pdf-inspector"
 end

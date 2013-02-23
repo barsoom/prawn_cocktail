@@ -8,13 +8,11 @@ If you're using this with Ruby on Rails, get [`PrawnCocktailRails`](http://githu
 
 Ruby 1.9 only since we use and love instance\_exec.
 
-NOTE: Work in progress; well used but untested.
-
 ![](http://upload.wikimedia.org/wikipedia/commons/f/f8/Cocktail_1_bg_060702.jpg)
 
 ## TODO
 
-* Tests.
+* More tests.
 * Syntax to declare page size shorthands?
 * Include instead of inherit? Consider `class_attribute`.
 
