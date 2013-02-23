@@ -13,6 +13,10 @@ module PrawnCocktail
       renderer.render_file(file)
     end
 
+    def filename
+      # Override in your subclass.
+    end
+
     private
 
     def renderer
