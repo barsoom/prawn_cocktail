@@ -8,28 +8,44 @@ PrawnCocktail.template_root = "spec/fixtures"
 require_relative "fixtures/document"
 
 describe PrawnCocktail do
+  let(:data) do
+    TestDocument.new("success").render
+  end
+
   describe "#render" do
-    it "works" do
-      data = TestDocument.new("success").render
-      assert_test_document data
+    it "has the right contents" do
+      assert_data_has_the_right_contents
+    end
+
+    it "has the right geometry" do
+      assert_data_has_the_right_geometry
     end
   end
 
   describe "#render_file" do
-    it "works" do
+    let(:data) do
       TestDocument.new("success").render_file("/tmp/test_document.pdf")
       data = File.read("/tmp/test_document.pdf")
-      assert_test_document data
+    end
+
+    it "has the right contents" do
+      assert_data_has_the_right_contents
+    end
+
+    it "has the right geometry" do
+      assert_data_has_the_right_geometry
     end
   end
 end
 
-def assert_test_document(data)
+def assert_data_has_the_right_contents
   assert_equal(
     [ "Init works.", "Test document", "Status: success" ],
     parse_strings(data)
   )
+end
 
+def assert_data_has_the_right_geometry
   assert_equal(
     parse_geometry(data),
     expected_geometry("A4")
