@@ -51,7 +51,6 @@ describe PrawnCocktail do
   end
 end
 
-
 def assert_document_has_the_right_contents
   assert_equal(
     [ "Init works.", "Test document", "Status: success" ],
