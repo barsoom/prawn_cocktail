@@ -1,7 +1,9 @@
+require_relative "template"
+
 module PrawnCocktail
   class Renderer
-    def initialize(template, data, doc_initializers)
-      @template = template
+    def initialize(template_name, data, doc_initializers)
+      @template_name = template_name
       @data = data
       @doc_initializers = doc_initializers
     end
@@ -31,7 +33,7 @@ module PrawnCocktail
     private
 
     def render
-      instance_eval(read_template, template_path)
+      Template.new(@template_name).render(self)
     end
 
     def doc
@@ -40,18 +42,6 @@ module PrawnCocktail
 
     def data_object
       OpenStruct.new(@data)
-    end
-
-    def read_template
-      File.read(template_path)
-    end
-
-    def template_path
-      File.join(template_root, "#{@template}.pdf.rb")
-    end
-
-    def template_root
-      PrawnCocktail.template_root
     end
   end
 end
