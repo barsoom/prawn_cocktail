@@ -1,3 +1,4 @@
+require "prawn"
 require_relative "template"
 
 module PrawnCocktail
