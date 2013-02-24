@@ -31,7 +31,7 @@ module PrawnCocktail
     private
 
     def renderer
-      @renderer ||= Renderer.new(template_name, data, self.class.initializers)
+      @renderer ||= Renderer.new(template_name, data, initializers)
     end
 
     def template_name
@@ -41,6 +41,10 @@ module PrawnCocktail
     def data
       # Override in your subclass.
       {}
+    end
+
+    def initializers
+      self.class.initializers
     end
   end
 end

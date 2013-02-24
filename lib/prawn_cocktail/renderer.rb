@@ -38,7 +38,11 @@ module PrawnCocktail
     end
 
     def prawn_document
-      @doc ||= Prawn::Document.new(@prawn_document_options || {})
+      @doc ||= Prawn::Document.new(prawn_document_options)
+    end
+
+    def prawn_document_options
+      @prawn_document_options || {}
     end
 
     def data_object
