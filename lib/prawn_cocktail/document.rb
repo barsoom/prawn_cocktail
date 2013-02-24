@@ -6,15 +6,15 @@ require_relative "renderer"
 
 module PrawnCocktail
   class Document
-    class_attribute :doc_initializers
-    self.doc_initializers = []
+    class_attribute :initializers
+    self.initializers = []
 
-    def self.initialize_document(&block)
-      self.doc_initializers += [block]
+    def self.initialize_template(&block)
+      self.initializers += [block]
     end
 
     def self.helper(mod)
-      initialize_document { extend mod }
+      initialize_template { extend mod }
     end
 
     def render
@@ -33,7 +33,7 @@ module PrawnCocktail
     private
 
     def renderer
-      @renderer ||= Renderer.new(template_name, data, self.class.doc_initializers)
+      @renderer ||= Renderer.new(template_name, data, self.class.initializers)
     end
 
     def template_name

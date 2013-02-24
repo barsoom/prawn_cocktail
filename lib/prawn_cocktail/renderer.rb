@@ -2,10 +2,10 @@ require_relative "template"
 
 module PrawnCocktail
   class Renderer
-    def initialize(template_name, data, doc_initializers)
+    def initialize(template_name, data, initializers)
       @template_name = template_name
       @data = data
-      @doc_initializers = doc_initializers
+      @initializers = initializers
     end
 
     def meta(opts)
@@ -13,7 +13,7 @@ module PrawnCocktail
     end
 
     def content(&block)
-      @doc_initializers.each do |proc|
+      @initializers.each do |proc|
         prawn_document.instance_eval(&proc)
       end
 

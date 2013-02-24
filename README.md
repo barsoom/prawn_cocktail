@@ -118,13 +118,13 @@ If you use `PrawnCocktailRails`, you can put modules in `app/documents/helpers`,
 
 Note that you must explicitly declare the helpers you want. No helpers are automatically included. You can declare base helpers in a base document class, though, and they will be inherited.
 
-### `initialize_document`
+### `initialize_template`
 
-If you want to run some code in every document, use an `initialize_document` block:
+If you want to run some code in every template, use an `initialize_template` block:
 
 ``` ruby
 class BaseDocument < PrawnCocktail::Document
-  initialize_document do
+  initialize_template do
     font "Courier"
   end
 end
@@ -134,13 +134,13 @@ This is incidentally how helpers are implemented:
 
 ```
 def self.helper(mod)
-  initialize_document { extend mod }
+  initialize_template { extend mod }
 end
 ```
 
-You can have any number of document initializers in the same class.
+You can have any number of template initializers, not just one.
 
-Document initializers in a superclass are inherited by subclasses, and the subclass can add its own.
+Template initializers in a superclass are inherited by subclasses, and the subclass can add its own.
 
 ## Installation
 

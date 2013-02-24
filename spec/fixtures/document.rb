@@ -6,7 +6,7 @@ end
 
 class TestDocument < PrawnCocktail::Document
   helper TestDocumentHelper
-  initialize_document { text "Init works." }
+  initialize_template { text "Init works." }
 
   def initialize(status)
     @status = status
@@ -20,5 +20,5 @@ class TestDocument < PrawnCocktail::Document
 end
 
 class SubTestDocument < TestDocument
-  initialize_document { text "Sub-init works." }
+  initialize_template { text "Sub-init works." }
 end
