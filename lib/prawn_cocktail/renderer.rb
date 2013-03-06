@@ -1,5 +1,6 @@
 require "prawn"
 require_relative "template"
+require_relative "utils/recursive_closed_struct"
 
 module PrawnCocktail
   class Renderer
@@ -46,7 +47,7 @@ module PrawnCocktail
     end
 
     def data_object
-      OpenStruct.new(@data)
+      RecursiveClosedStruct.new(@data)
     end
   end
 end

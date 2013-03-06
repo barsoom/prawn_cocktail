@@ -42,7 +42,7 @@ class InvoiceDocument < PrawnCocktail::Document
     {
       number: @invoice.id,
       amount: @invoice.amount,
-      customer_name: @invoice.customer_name
+      customer: { name: @invoice.customer_name }
     }
   end
 end
@@ -54,7 +54,7 @@ The document has `render` and `render_file(name)` methods, just like `Prawn::Doc
 
 The filename is not required. Other libraries like `PrawnCocktailRails` may make use of it.
 
-The `data` value is passed to the template as an `OpenStruct`.
+The `data` value is passed to the template as a recursive `OpenStruct`-like object.
 
 If the data becomes complex, you are advised to extract one or many builder classes like `InvoiceDocument::Data` and call those from `data`.
 
@@ -72,13 +72,15 @@ content do |data|
   move_down 10
   text "Amount: #{data.amount}"
   move_down 10
-  text data.customer_name
+  text data.customer.name
 end
 ```
 
 The `meta` declaration is optional. It takes a hash which will be passed to `Prawn::Document.new`. This is where you specify `page_size`, `page_layout` and such.
 
-The `content` block will be passed the data from the document as an `OpenStruct`, and will be rendered in the context of a `Prawn::Document` instance.
+The `content` block will be passed the data from the document as a recursive `OpenStruct`-type object (actually a `RecursiveClosedStruct` utility class).
+
+The `content` block will be rendered in the context of a `Prawn::Document` instance.
 
 ### Helpers
 

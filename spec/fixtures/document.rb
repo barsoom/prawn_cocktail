@@ -15,7 +15,7 @@ class TestDocument < PrawnCocktail::Document
   private
 
   def data
-    { status: @status }
+    { nested: { status: @status } }
   end
 end
 

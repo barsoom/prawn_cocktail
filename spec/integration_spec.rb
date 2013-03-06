@@ -1,5 +1,4 @@
-require "minitest/autorun"
-require "minitest/pride"
+require_relative "spec_helper"
 require "pdf/inspector"
 
 require "prawn_cocktail"
