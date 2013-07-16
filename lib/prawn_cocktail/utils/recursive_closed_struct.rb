@@ -3,6 +3,10 @@ class RecursiveClosedStruct
     @hash = hash
   end
 
+  def has_key?(key)
+    @hash.has_key? key
+  end
+
   def method_missing(name, *)
     value = fetch(name)
     if value.is_a?(Hash)
