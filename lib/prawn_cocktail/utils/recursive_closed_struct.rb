@@ -3,8 +3,8 @@ class RecursiveClosedStruct
     @hash = hash
   end
 
-  def has_key?(key)
-    @hash.has_key? key
+  def include?(key)
+    @hash.include?(key)
   end
 
   def method_missing(name, *)

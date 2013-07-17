@@ -22,20 +22,20 @@ describe RecursiveClosedStruct do
     assert_equal "four", subject.one.two.three
   end
 
+  describe "#include?" do
+    it "is true if that key exists" do
+      subject = RecursiveClosedStruct.new(real: true)
+      assert subject.include?(:real)
+    end
 
-  it "lets a user check if the key exists without throwing an error" do
-    subject = RecursiveClosedStruct.new({
-      real: true
-    })
+    it "is false if that key does not exist" do
+      subject = RecursiveClosedStruct.new(real: true)
+      refute subject.include?(:imaginary)
+    end
 
-    assert subject.has_key?(:real)
-  end
-
-  it "lets a user check if the key does not exist without throwing an error" do
-    subject = RecursiveClosedStruct.new({
-      real: true
-    })
-
-    refute subject.has_key?(:imaginary)
+    it "recurses" do
+      subject = RecursiveClosedStruct.new(one: { two: "three" })
+      assert subject.one.include?(:two)
+    end
   end
 end
