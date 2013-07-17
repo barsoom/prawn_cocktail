@@ -5,13 +5,14 @@ require_relative "utils/recursive_closed_struct"
 module PrawnCocktail
   class Renderer
     def initialize(template_name, data, initializers)
+      @prawn_document_options = {}
       @template_name = template_name
       @data = data
       @initializers = initializers
     end
 
     def meta(opts)
-      @prawn_document_options = opts
+      @prawn_document_options.merge! opts
     end
 
     def content(&block)
