@@ -12,7 +12,7 @@ module PrawnCocktail
     end
 
     def meta(opts)
-      @prawn_document_options.merge! opts
+      @prawn_document_options.merge!(opts)
     end
 
     def content(&block)
