@@ -1,6 +1,6 @@
 # PrawnCocktail
 
-[![Build status](https://secure.travis-ci.org/barsoom/prawn_cocktail.png)](https://travis-ci.org/#!/barsoom/prawn_cocktail/builds)
+[![Build Status](https://travis-ci.org/barsoom/prawn_cocktail.svg?branch=master)](https://travis-ci.org/barsoom/prawn_cocktail)
 
 Simple documents, templates and helpers on top of Prawn.
 
