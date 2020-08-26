@@ -65,5 +65,5 @@ def parse_geometry(pdf_data)
 end
 
 def expected_geometry(name)
-  Prawn::Document::PageGeometry::SIZES[name]
+  PDF::Core::PageGeometry::SIZES[name]
 end
