@@ -8,8 +8,6 @@ Because writing Prawn documents PHP 4 style is no fun.
 
 If you're using this with Ruby on Rails, get [`PrawnCocktailRails`](http://github.com/barsoom/prawn_cocktail_rails).
 
-Ruby 1.9 only since we use and love instance\_exec.
-
 ![](http://upload.wikimedia.org/wikipedia/commons/f/f8/Cocktail_1_bg_060702.jpg)
 
 ## Usage
