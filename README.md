@@ -1,5 +1,7 @@
 # PrawnCocktail
 
+[![Ruby CI](https://github.com/barsoom/prawn_cocktail/actions/workflows/ci.yml/badge.svg)](https://github.com/barsoom/prawn_cocktail/actions/workflows/ci.yml)
+
 Simple documents, templates and helpers on top of Prawn.
 
 Because writing Prawn documents PHP 4 style is no fun.
