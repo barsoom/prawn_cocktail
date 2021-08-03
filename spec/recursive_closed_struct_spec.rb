@@ -17,7 +17,7 @@ describe RecursiveClosedStruct do
 
   it "recurses through hashes" do
     subject = RecursiveClosedStruct.new({
-      one: { two: { three: "four" } }
+      one: { two: { three: "four" } },
     })
     assert_equal "four", subject.one.two.three
   end
