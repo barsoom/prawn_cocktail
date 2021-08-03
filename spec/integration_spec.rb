@@ -15,7 +15,7 @@ describe PrawnCocktail do
     it "has the right contents" do
       assert_equal(
         [ "Init works.", "Test document", "Status: success" ],
-        parse_strings(data)
+        parse_strings(data),
       )
     end
 
@@ -33,7 +33,7 @@ describe PrawnCocktail do
     it "has the right contents" do
       assert_equal(
         [ "Init works.", "Test document", "Status: success" ],
-        parse_strings(data)
+        parse_strings(data),
       )
     end
 
@@ -50,7 +50,7 @@ describe PrawnCocktail do
     it "inherits initializers and helpers" do
       assert_equal(
         [ "Init works.", "Sub-init works.", "Sub test document", "Status: success" ],
-        parse_strings(data)
+        parse_strings(data),
       )
     end
   end
