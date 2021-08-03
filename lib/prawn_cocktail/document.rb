@@ -8,7 +8,7 @@ module PrawnCocktail
     self.initializers = []
 
     def self.initialize_template(&block)
-      self.initializers += [block]
+      self.initializers += [ block ]
     end
 
     def self.helper(mod)
