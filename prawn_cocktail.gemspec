@@ -12,13 +12,9 @@ Gem::Specification.new do |gem|
   gem.homepage      = ""
   gem.metadata      = { "rubygems_mfa_required" => "true" }
 
-
   gem.files         = `git ls-files`.split($/)
   gem.require_paths = [ "lib" ]
 
   gem.add_dependency "prawn"
   gem.add_dependency "activesupport"
-
-  gem.add_development_dependency "rake"  # For Travis CI.
-  gem.add_development_dependency "pdf-inspector"
 end
