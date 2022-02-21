@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in prawn_cocktail.gemspec
 gemspec
+
+gem "matrix"
 
 group :development, :test do
   gem "barsoom_utils"
@@ -9,3 +10,4 @@ group :development, :test do
   gem "rake"
   gem "rubocop"
 end
+
