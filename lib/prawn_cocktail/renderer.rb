@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "prawn"
 require_relative "template"
 require_relative "utils/recursive_closed_struct"

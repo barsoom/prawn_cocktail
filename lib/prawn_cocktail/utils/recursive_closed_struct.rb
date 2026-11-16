@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RecursiveClosedStruct
   def initialize(hash)
     @hash = hash

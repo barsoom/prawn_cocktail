@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PrawnCocktail
   class << self
     attr_accessor :template_root
