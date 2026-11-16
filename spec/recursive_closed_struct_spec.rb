@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "spec_helper"
 
 require_relative "../lib/prawn_cocktail/utils/recursive_closed_struct"

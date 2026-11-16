@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PrawnCocktail
   class Template
     def initialize(name)

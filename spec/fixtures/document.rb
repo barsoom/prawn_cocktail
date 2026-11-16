@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TestDocumentHelper
   def status_line(status)
     text "Status: #{status}"
